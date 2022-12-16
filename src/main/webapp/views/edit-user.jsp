@@ -35,9 +35,9 @@
 					<div class="form-group mt-3">
 						<label for="role" class="form-label">Role</label>
 						<select name="role" id="role" class="form-select">
-							<option value="">-- select role --</option>
+							<option value="" ${user.getRole() eq 'ADMIN' ? 'disabled' : ''}>-- select role --</option>
 							<option value="ADMIN" ${user.getRole() eq 'ADMIN' ? 'selected' : ''}>Admin</option>
-							<option value="USER" ${user.getRole() eq 'USER' ? 'selected' : ''}>User</option>
+							<option value="USER" ${user.getRole() eq 'USER' ? 'selected' : ''}  ${user.getRole() eq 'ADMIN' ? 'disabled' : ''}>User</option>
 						</select>
 						<cus:invalidFieldMessage exception="${invalidFieldException}" field="role" cssClass="text-danger"/>
 					</div>

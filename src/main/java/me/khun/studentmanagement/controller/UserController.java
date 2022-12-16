@@ -103,7 +103,9 @@ public class UserController extends BaseController {
             	req.getSession(false).setAttribute("alert", alert);
         	}
         	
-        	loginUser.setUser(userService.findById(loginUserId));
+        	if (loginUserId.equals(saved.getId())) {
+        		loginUser.setUser(userService.findById(loginUserId));
+        	}
         	
         	redirect(resp, "/user/search");
         	return;
@@ -124,7 +126,12 @@ public class UserController extends BaseController {
     	var approved = (approvedParam == null || !approvedParam.equals("false")) ? true : false;
     	
         var alert = new Alert();
+        
         try {
+        	if (getLoginInfo(req).getUser().getId().equals(id)) {
+        		throw new ServiceException("You cannot delete this user.");
+            }
+        	
         	userService.deleteById(id);
         	alert.setMessage("Successfully %s the user.".formatted(approved ? "deleted" : "removed"));
         	alert.setType(Type.SUCCESS);
@@ -132,6 +139,7 @@ public class UserController extends BaseController {
         	alert.setMessage(e.getMessage());
         	alert.setType(Type.ERROR);
         }
+        
         req.getSession(false).setAttribute("alert", alert);
         var param = approved ? "" : "/request";
     	redirect(resp, "/user/search" + param);

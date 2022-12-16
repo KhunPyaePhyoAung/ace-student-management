@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import me.khun.studentmanagement.security.LoginUser;
+
 public abstract class BaseController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -25,5 +27,9 @@ public abstract class BaseController extends HttpServlet {
 			return null;
 		}
 		return LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	}
+	
+	protected LoginUser getLoginInfo(HttpServletRequest req) {
+		return (LoginUser) req.getSession().getAttribute("loginUser");
 	}
 }
