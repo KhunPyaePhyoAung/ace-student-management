@@ -183,6 +183,12 @@ public class UserController extends BaseController {
     	}
     	
     	var user = (UserDto) req.getAttribute("user");
+    	
+    	if (!user.isApproved()) {
+    		resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "This user have not been approved.");
+    		return;
+    	}
+    	
     	req.setAttribute("title", (user == null || user.getId() == null || user.getId().isBlank()) ? "User Registration" : "Edit User");
         forward(req, resp, "/views/edit-user.jsp");
     }
@@ -201,7 +207,6 @@ public class UserController extends BaseController {
     		resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "You are not authorized.");
     		return;
     	}
-    	
     	req.setAttribute("user", user);
     	req.setAttribute("title", "User Detail");
     	forward(req, resp, "/views/user-detail.jsp");

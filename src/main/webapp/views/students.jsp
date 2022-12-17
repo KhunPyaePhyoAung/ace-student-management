@@ -20,6 +20,10 @@
 				<div class="input-group">
 					<input class="form-control" type="text" name="studentKeyword" value="${param.studentKeyword}" placeholder="Search Student" />
 					<input class="form-control" type="text" name="courseKeyword" value="${param.courseKeyword}" placeholder="Search Course" />
+					<c:url var="clearSearchUrl" value="/student/search"></c:url>
+					<a href="${clearSearchUrl}" class="input-group-text">
+						<i class="fa-solid fa-delete-left"></i>
+					</a>
 					<button class="col-auto btn btn-primary" type="submit">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</button>

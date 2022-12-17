@@ -49,7 +49,7 @@
 				<c:url var="userEditUrl" value="/user/edit">
 					<c:param name="id">${user.getId()}</c:param>
 				</c:url>
-				<a href="${userEditUrl}" class="btn btn-primary w-100 mt-4 ${role eq 'ADMIN' ? '' : 'd-none'}">
+				<a href="${userEditUrl}" class="btn btn-primary w-100 mt-4 ${role eq 'ADMIN' and user.isApproved() ? '' : 'd-none'}">
 					<i class="fa-solid fa-pen-to-square"></i>
 					Edit
 				</a>

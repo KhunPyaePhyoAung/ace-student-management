@@ -13,6 +13,8 @@ public class UserRowMapper implements RowMapper<User> {
 	public User mapRow(ResultSet rs, int index) throws SQLException {
 		var user = new User();
 		user.setId(rs.getString("id"));
+		user.setIdPrefix(rs.getString("id_prefix"));
+		user.setIdCode(rs.getInt("id_code"));
 		user.setName(rs.getString("name"));
 		user.setEmail(rs.getString("email"));
 		user.setPassword(rs.getString("password"));

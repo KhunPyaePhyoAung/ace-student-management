@@ -12,7 +12,7 @@ import me.khun.studentmanagement.support.jdbc.JdbcOperations;
 import me.khun.studentmanagement.support.jdbc.KeyHolder;
 import me.khun.studentmanagement.support.jdbc.RowMapper;
 
-public class StudentRepoImpl implements StudentRepo {
+public class JdbcStudentRepoImpl implements StudentRepo {
 	
 	private JdbcOperations jdbc;
 	private RowMapper<Student> studentRowMapper;
@@ -28,7 +28,7 @@ public class StudentRepoImpl implements StudentRepo {
 	private String studentCourseInsertSql;
 	private String studentCoursedeleteByCourseIdNotINAndStudentIdSql;
 	
-	public StudentRepoImpl() {
+	public JdbcStudentRepoImpl() {
 		jdbc = Application.getJdbcOperations();
 		studentRowMapper = new StudentRowMapper();
 		courseRepo = Application.getCourseRepo();

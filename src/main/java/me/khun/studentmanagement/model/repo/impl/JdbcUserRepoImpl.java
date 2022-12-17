@@ -10,7 +10,7 @@ import me.khun.studentmanagement.support.jdbc.JdbcOperations;
 import me.khun.studentmanagement.support.jdbc.KeyHolder;
 import me.khun.studentmanagement.support.jdbc.RowMapper;
 
-public class UserRepoImpl implements UserRepo {
+public class JdbcUserRepoImpl implements UserRepo {
 
 	private JdbcOperations jdbc;
 	private String userIdPrefix;
@@ -27,7 +27,7 @@ public class UserRepoImpl implements UserRepo {
 	private String userSelectCountByApprovedSql;
 	private String userDeleteByIdSql;
 	
-	public UserRepoImpl() {
+	public JdbcUserRepoImpl() {
 		jdbc = Application.getJdbcOperations();
 		userIdPrefix = Application.USER_ID_PREFIX;
 		userRowMapper = new UserRowMapper();

@@ -37,7 +37,7 @@
 						<select name="role" id="role" class="form-select">
 							<option value="" ${user.getRole() eq 'ADMIN' ? 'disabled' : ''}>-- select role --</option>
 							<option value="ADMIN" ${user.getRole() eq 'ADMIN' ? 'selected' : ''}>Admin</option>
-							<option value="USER" ${user.getRole() eq 'USER' ? 'selected' : ''}  ${user.getRole() eq 'ADMIN' ? 'disabled' : ''}>User</option>
+							<option value="USER" ${user.getRole() eq 'USER' ? 'selected' : ''}  ${user.getRole() eq 'ADMIN' and user eq sessionScope.loginUser.getUser() ? 'disabled' : ''}>User</option>
 						</select>
 						<cus:invalidFieldMessage exception="${invalidFieldException}" field="role" cssClass="text-danger"/>
 					</div>

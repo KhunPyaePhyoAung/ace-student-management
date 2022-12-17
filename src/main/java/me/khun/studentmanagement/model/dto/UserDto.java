@@ -10,6 +10,10 @@ import me.khun.studentmanagement.model.entity.User.Role;
 public class UserDto {
 
     private String id;
+    
+    private String idPrefix;
+    
+    private Integer idCode;
 
     private String name;
 
@@ -26,6 +30,8 @@ public class UserDto {
     public static UserDto of(User user) {
     	var dto = new UserDto();
     	dto.setId(user.getId());
+    	dto.setIdPrefix(user.getIdPrefix());
+    	dto.setIdCode(user.getIdCode());
     	dto.setName(user.getName());
     	dto.setEmail(user.getEmail());
     	dto.setPassword(user.getPassword());
@@ -46,6 +52,8 @@ public class UserDto {
     public static User parse(UserDto dto) {
     	var user = new User();
     	user.setId(dto.getId());
+    	user.setIdPrefix(dto.getIdPrefix());
+    	user.setIdCode(dto.getIdCode());
     	user.setName(dto.getName());
     	user.setEmail(dto.getEmail());
     	user.setPassword(dto.getPassword());
@@ -60,6 +68,22 @@ public class UserDto {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getIdPrefix() {
+		return idPrefix;
+	}
+
+	public void setIdPrefix(String idPrefix) {
+		this.idPrefix = idPrefix;
+	}
+
+	public Integer getIdCode() {
+		return idCode;
+	}
+
+	public void setIdCode(Integer idCode) {
+		this.idCode = idCode;
 	}
 
 	public String getName() {
@@ -112,7 +136,7 @@ public class UserDto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(approved, confirmPassword, email, id, name, password, role);
+		return Objects.hash(approved, confirmPassword, email, id, idCode, idPrefix, name, password, role);
 	}
 
 	@Override
@@ -126,6 +150,7 @@ public class UserDto {
 		UserDto other = (UserDto) obj;
 		return approved == other.approved && Objects.equals(confirmPassword, other.confirmPassword)
 				&& Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(idCode, other.idCode) && Objects.equals(idPrefix, other.idPrefix)
 				&& Objects.equals(name, other.name) && Objects.equals(password, other.password) && role == other.role;
 	}
 

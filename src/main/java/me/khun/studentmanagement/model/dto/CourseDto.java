@@ -113,6 +113,4 @@ public class CourseDto {
 				&& Objects.equals(shortName, other.shortName);
 	}
 
-	
-
 }

@@ -7,9 +7,9 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 import me.khun.studentmanagement.model.repo.CourseRepo;
 import me.khun.studentmanagement.model.repo.StudentRepo;
 import me.khun.studentmanagement.model.repo.UserRepo;
-import me.khun.studentmanagement.model.repo.impl.CourseRepoImpl;
-import me.khun.studentmanagement.model.repo.impl.StudentRepoImpl;
-import me.khun.studentmanagement.model.repo.impl.UserRepoImpl;
+import me.khun.studentmanagement.model.repo.impl.MyBatisCourseRepoImpl;
+import me.khun.studentmanagement.model.repo.impl.MyBatisStudentRepoImpl;
+import me.khun.studentmanagement.model.repo.impl.MyBatisUserRepoImpl;
 import me.khun.studentmanagement.model.service.AuthService;
 import me.khun.studentmanagement.model.service.CourseService;
 import me.khun.studentmanagement.model.service.StudentService;
@@ -48,15 +48,15 @@ public class Application {
 	}
 
 	public static CourseRepo getCourseRepo() {
-		return new CourseRepoImpl();
+		return new MyBatisCourseRepoImpl();
 	}
 	
 	public static UserRepo getUserRepo() {
-		return new UserRepoImpl();
+		return new MyBatisUserRepoImpl();
 	}
 	
 	public static StudentRepo getStudentRepo() {
-		return new StudentRepoImpl();
+		return new MyBatisStudentRepoImpl();
 	}
 	
 	public static UserService getUserService() {

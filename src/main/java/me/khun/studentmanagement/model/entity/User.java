@@ -9,6 +9,10 @@ public class User {
 	}
 	
     private String id;
+    
+    private String idPrefix;
+    
+    private Integer idCode;
 
     private String name;
 
@@ -26,6 +30,22 @@ public class User {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getIdPrefix() {
+		return idPrefix;
+	}
+
+	public void setIdPrefix(String idPrefix) {
+		this.idPrefix = idPrefix;
+	}
+
+	public Integer getIdCode() {
+		return idCode;
+	}
+
+	public void setIdCode(Integer idCode) {
+		this.idCode = idCode;
 	}
 
 	public String getName() {
@@ -70,7 +90,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(approved, email, id, name, password, role);
+		return Objects.hash(approved, email, id, idCode, idPrefix, name, password, role);
 	}
 
 	@Override
@@ -83,6 +103,7 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return approved == other.approved && Objects.equals(email, other.email) && Objects.equals(id, other.id)
+				&& Objects.equals(idCode, other.idCode) && Objects.equals(idPrefix, other.idPrefix)
 				&& Objects.equals(name, other.name) && Objects.equals(password, other.password) && role == other.role;
 	}
 

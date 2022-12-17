@@ -10,7 +10,7 @@ import me.khun.studentmanagement.support.jdbc.JdbcOperations;
 import me.khun.studentmanagement.support.jdbc.KeyHolder;
 import me.khun.studentmanagement.support.jdbc.RowMapper;
 
-public class CourseRepoImpl implements CourseRepo {
+public class JdbcCourseRepoImpl implements CourseRepo {
 	
 	private String courseIdPrefix;
 	private JdbcOperations jdbc;
@@ -24,7 +24,7 @@ public class CourseRepoImpl implements CourseRepo {
 	private String courseSelectByIdAndNameLikeSql;
 	private String courseSelectCountSql;
 	
-	public CourseRepoImpl() {
+	public JdbcCourseRepoImpl() {
 		jdbc = Application.getJdbcOperations();
 		courseRowMapper = new CourseRowMapper();
 		

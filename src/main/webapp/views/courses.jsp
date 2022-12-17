@@ -19,6 +19,10 @@
 			<div class="col-auto">
 				<div class="input-group">
 					<input class="form-control" type="text" name="keyword" value="${param.keyword}" placeholder="Search Course" />
+					<c:url var="clearSearchUrl" value="/course/search"></c:url>
+					<a href="${clearSearchUrl}" class="input-group-text">
+						<i class="fa-solid fa-delete-left"></i>
+					</a>
 					<button class="col-auto btn btn-primary" type="submit">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</button>
