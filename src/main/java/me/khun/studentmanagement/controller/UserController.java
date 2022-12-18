@@ -184,7 +184,7 @@ public class UserController extends BaseController {
     	
     	var user = (UserDto) req.getAttribute("user");
     	
-    	if (!user.isApproved()) {
+    	if (user != null && !user.isApproved()) {
     		resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "This user have not been approved.");
     		return;
     	}

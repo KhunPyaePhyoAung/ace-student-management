@@ -21,8 +21,8 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="user-mapper.xml"></mapper>
-		<mapper resource="course-mapper.xml"></mapper>
-		<mapper resource="student-mapper.xml"></mapper>
+		<mapper resource="me/khun/studentmanagement/model/repo/impl/user-mapper.xml"></mapper>
+		<mapper resource="me/khun/studentmanagement/model/repo/impl/course-mapper.xml"></mapper>
+		<mapper resource="me/khun/studentmanagement/model/repo/impl/student-mapper.xml"></mapper>
 	</mappers>
 </configuration>

@@ -16,7 +16,7 @@ public class MyBatisUtil {
 		if (sessionFactory == null) {
 			Reader reader = null;
 			try {
-				reader = Resources.getResourceAsReader("mybatis-config.xml");
+				reader = Resources.getResourceAsReader("me/khun/studentmanagement/model/repo/impl/mybatis-config.xml");
 				sessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			} catch (IOException e) {
 				e.printStackTrace();
